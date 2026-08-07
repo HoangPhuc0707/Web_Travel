@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           <!-- Tab: Itinerary -->
           <div class="detail-panel active reveal" id="tab-itinerary">
-            <div class="itinerary-day" style="margin-bottom:var(--space-lg);" id="itinerary-list">
+            <div style="margin-bottom:var(--space-lg);" id="itinerary-list">
               ${tour.itinerary.map(d => `
                 <div class="itinerary-day">
                   <div class="day-num">D${d.day}</div>

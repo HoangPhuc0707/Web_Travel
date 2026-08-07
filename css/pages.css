@@ -388,61 +388,68 @@
 .detail-panel { display: none; }
 .detail-panel.active { display: block; }
 
-/* Itinerary Timeline */
+/* Itinerary Timeline — Vertical Stacked */
+#itinerary-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
 .itinerary-day {
   display: flex;
-  gap: var(--space-lg);
-  margin-bottom: var(--space-lg);
+  flex-direction: column;
+  align-items: flex-start;
   position: relative;
 }
 
+/* Xóa đường kẻ ngang */
 .itinerary-day::before {
-  content: '';
-  position: absolute;
-  left: 22px;
-  top: 48px;
-  bottom: -24px;
-  width: 2px;
-  background: var(--border);
+  display: none;
 }
 
-.itinerary-day:last-child::before { display: none; }
-
 .day-num {
-  width: 46px;
-  height: 46px;
+  padding: 0 var(--space-md);
+  height: 36px;
   background: var(--grad-primary);
-  border-radius: var(--radius-full);
-  display: flex;
+  border-radius: 99px; /* Pill shape thay vì tròn nếu muốn, hoặc tròn vẫn được */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   color: white;
   font-weight: 800;
   font-size: 14px;
-  flex-shrink: 0;
-  position: relative;
+  margin-bottom: var(--space-sm);
+  box-shadow: 0 4px 12px rgba(0,87,184,0.3);
   z-index: 1;
 }
 
 .day-content {
-  flex: 1;
+  width: 100%;
   background: var(--bg-soft);
   border-radius: var(--radius-md);
-  padding: var(--space-md) var(--space-lg);
+  padding: var(--space-lg);
   border: 1px solid var(--border);
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.day-content:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,87,184,0.12);
+  border-color: var(--primary);
 }
 
 .day-title {
   font-weight: 700;
-  font-size: 15px;
+  font-size: 14px;
   color: var(--text);
   margin-bottom: 6px;
 }
 
 .day-desc {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text-muted);
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 /* Includes / Excludes */
