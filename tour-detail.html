@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title id="page-title">Chi Tiết Tour — PTX Travel</title>
+  <meta name="description" id="page-desc" content="Xem chi tiết tour du lịch tại PTX Travel: lịch trình, giá cả, dịch vụ bao gồm và đặt tour ngay."/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/animations.css"/>
+  <link rel="stylesheet" href="css/components.css"/>
+  <link rel="stylesheet" href="css/pages.css"/>
+</head>
+<body>
+
+<!-- Tour content injected by JS -->
+<div id="tour-detail-root" style="margin-top:var(--nav-h);padding-bottom:var(--space-3xl);">
+  <div class="container" style="padding-top:60px;text-align:center;">
+    <div style="font-size:48px;margin-bottom:16px;">⏳</div>
+    <p style="color:var(--text-muted);">Đang tải thông tin tour...</p>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close">✕</button>
+  <img id="lightbox-img" src="" alt="Tour gallery"/>
+</div>
+
+<script src="js/components/navbar.js"></script>
+<script src="js/components/footer.js"></script>
+<script src="js/data/tours-data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/pages/tour-detail.js"></script>
+</body>
+</html>

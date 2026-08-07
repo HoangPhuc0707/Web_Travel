@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PTX Travel — Phú Thọ Xanh Tourist | Tour Du Lịch Việt Nam & Quốc Tế</title>
+  <meta name="description" content="PTX Travel chuyên cung cấp tour du lịch trong nước và quốc tế. Khám phá Hạ Long, Sa Pa, Hội An, Paris, Nhật Bản và hơn 50 điểm đến tuyệt vời." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+<!-- Loading -->
+<div id="loading-screen"><div class="loading-logo"><span>PTX</span><span> Travel</span></div><div class="loading-bar"><div class="loading-progress"></div></div></div>
+
+<!-- ── HERO ── -->
+<section id="hero" aria-label="Banner chính" style="margin-top:var(--nav-h);">
+  <div class="hero-slider">
+    <div class="hero-slide"><img src="assets/hero_banner.png" alt="Vẻ đẹp Việt Nam" /></div>
+    <div class="hero-slide"><img src="assets/tour_halong.png" alt="Vịnh Hạ Long" /></div>
+    <div class="hero-slide"><img src="assets/tour_sapa.png" alt="Sa Pa" /></div>
+    <div class="hero-slide"><img src="assets/tour_paris.png" alt="Paris" /></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="container" style="position:relative;z-index:2;text-align:center;">
+    <div class="hero-content">
+      <div class="hero-label">✈ Khám Phá Thế Giới Cùng PTX Travel</div>
+      <h1 class="hero-title">Hành Trình <span class="highlight">Tuyệt Vời</span><br>Bắt Đầu Từ Đây</h1>
+      <p class="hero-subtitle">Chúng tôi mang đến những trải nghiệm du lịch đáng nhớ, từ vẻ đẹp Việt Nam đến những điểm đến kỳ thú trên toàn thế giới.</p>
+      <div class="hero-actions">
+        <a href="tours.html" class="btn btn-primary btn-lg">🗺️ Khám Phá Tours</a>
+        <a href="contact.html" class="btn btn-lg" style="background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.4);color:white;">📞 Tư Vấn Miễn Phí</a>
+      </div>
+      <div class="hero-search">
+        <div class="search-field">
+          <label for="hero-search-input">🔍 Điểm đến</label>
+          <input type="text" id="hero-search-input" placeholder="Tìm điểm đến, tour..." />
+        </div>
+        <div class="search-divider"></div>
+        <div class="search-field">
+          <label for="hero-date">📅 Ngày khởi hành</label>
+          <input type="date" id="hero-date" />
+        </div>
+        <div class="search-divider"></div>
+        <div class="search-field">
+          <label for="hero-people">👥 Số người</label>
+          <select id="hero-people">
+            <option>2 người</option><option>3-5 người</option>
+            <option>6-10 người</option><option>10+ người</option>
+          </select>
+        </div>
+        <a href="tours.html" class="btn btn-red" id="hero-search-btn">🔍 Tìm Tour</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-dots">
+    <button class="hero-dot active"></button><button class="hero-dot"></button>
+    <button class="hero-dot"></button><button class="hero-dot"></button>
+  </div>
+</section>
+
+<!-- ── STATS ── -->
+<div id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal"><div class="stat-number"><span data-count="15000" data-suffix="+">0</span></div><div class="stat-label">🧳 Khách Hàng Hài Lòng</div></div>
+      <div class="stat-item reveal"><div class="stat-number"><span data-count="50" data-suffix="+">0</span></div><div class="stat-label">🗺️ Điểm Đến Thế Giới</div></div>
+      <div class="stat-item reveal"><div class="stat-number"><span data-count="12" data-suffix=" Năm">0</span></div><div class="stat-label">⭐ Kinh Nghiệm</div></div>
+      <div class="stat-item reveal"><div class="stat-number"><span data-count="98" data-suffix="%">0</span></div><div class="stat-label">💬 Tỉ Lệ Hài Lòng</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FEATURED TOURS ── -->
+<section class="section" id="featured-tours">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Tour Nổi Bật</div>
+      <h2 class="section-title">Những <span>Hành Trình</span> Đáng Nhớ</h2>
+      <p class="section-subtitle">Khám phá bộ sưu tập tour được yêu thích nhất từ Việt Nam đến quốc tế.</p>
+    </div>
+    <div class="tours-filters reveal">
+      <button class="tag filter-btn active" data-filter="all">🌍 Tất Cả</button>
+      <button class="tag filter-btn" data-filter="vietnam">🇻🇳 Việt Nam</button>
+      <button class="tag filter-btn" data-filter="southeast-asia">🌏 Đông Nam Á</button>
+      <button class="tag filter-btn" data-filter="international">✈️ Quốc Tế</button>
+    </div>
+    <div id="home-tours-grid" class="tours-grid stagger-children"></div>
+    <div class="tours-footer reveal" style="margin-top:var(--space-xl);text-align:center;">
+      <a href="tours.html" class="btn btn-outline btn-lg">Xem Tất Cả Tours <span class="bounce-x">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ── DESTINATIONS PREVIEW ── -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Điểm Đến Hot</div>
+      <h2 class="section-title">Khám Phá <span>Thế Giới</span> Rộng Lớn</h2>
+      <p class="section-subtitle">Những địa danh nổi tiếng nhất mà du khách yêu thích năm 2026.</p>
+    </div>
+    <div class="destinations-grid reveal">
+      <div class="dest-card"><img src="assets/tour_halong.png" alt="Hạ Long" loading="lazy"/><div class="dest-overlay"><h3 class="dest-name">Vịnh Hạ Long</h3><p class="dest-count">12 tour</p></div></div>
+      <div class="dest-card"><img src="assets/tour_hoian.png" alt="Hội An" loading="lazy"/><div class="dest-overlay"><h3 class="dest-name">Hội An</h3><p class="dest-count">8 tour</p></div></div>
+      <div class="dest-card"><img src="assets/tour_paris.png" alt="Paris" loading="lazy"/><div class="dest-overlay"><h3 class="dest-name">Paris</h3><p class="dest-count">5 tour</p></div></div>
+      <div class="dest-card"><img src="assets/tour_sapa.png" alt="Sa Pa" loading="lazy"/><div class="dest-overlay"><h3 class="dest-name">Sa Pa</h3><p class="dest-count">9 tour</p></div></div>
+      <div class="dest-card"><img src="assets/tour_japan.png" alt="Nhật Bản" loading="lazy"/><div class="dest-overlay"><h3 class="dest-name">Nhật Bản</h3><p class="dest-count">6 tour</p></div></div>
+    </div>
+    <div style="text-align:center;margin-top:var(--space-xl);" class="reveal">
+      <a href="destinations.html" class="btn btn-outline btn-lg">Xem Tất Cả Điểm Đến <span class="bounce-x">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT PREVIEW ── -->
+<section class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrapper reveal-left">
+        <div class="about-img-main"><img src="assets/tour_singapore.png" alt="PTX Travel" loading="lazy"/></div>
+        <div class="about-img-badge float-anim"><div class="badge-icon">🏆</div><div class="badge-text"><strong>Top 10</strong><span>Công ty du lịch uy tín 2025</span></div></div>
+      </div>
+      <div class="about-content reveal-right">
+        <div class="section-label" style="justify-content:flex-start;">Câu Chuyện Của Chúng Tôi</div>
+        <h2 class="section-title" style="text-align:left;">12 Năm Kiến Tạo <span>Kỷ Niệm</span> Đáng Nhớ</h2>
+        <p style="color:var(--text-muted);line-height:1.8;margin-bottom:16px;">Được thành lập từ năm 2013 tại Phú Thọ, <strong>PTX Travel</strong> luôn đặt khách hàng lên hàng đầu với cam kết mang đến những trải nghiệm du lịch an toàn, chất lượng và đáng nhớ.</p>
+        <div class="about-features">
+          <div class="feature-item"><div class="feature-icon">🛡️</div><div class="feature-text"><h4>An Toàn & Uy Tín</h4><p>Được cấp phép bởi Tổng cục Du lịch Việt Nam.</p></div></div>
+          <div class="feature-item"><div class="feature-icon">💎</div><div class="feature-text"><h4>Dịch Vụ Premium</h4><p>Khách sạn 4-5 sao, hướng dẫn viên chuyên nghiệp.</p></div></div>
+          <div class="feature-item"><div class="feature-icon">🎯</div><div class="feature-text"><h4>Tùy Chỉnh Theo Yêu Cầu</h4><p>Thiết kế lịch trình riêng theo ngân sách & sở thích.</p></div></div>
+        </div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="about.html" class="btn btn-primary btn-lg">Tìm Hiểu Thêm</a>
+          <a href="contact.html" class="btn btn-ghost btn-lg">Liên Hệ <span class="bounce-x">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Khách Hàng Nói Gì</div>
+      <h2 class="section-title">Hàng Nghìn <span>Khách Hàng</span> Tin Tưởng</h2>
+    </div>
+    <div style="overflow:hidden;" class="reveal">
+      <div class="testimonials-track">
+        <div class="testimonial-card"><div class="testimonial-quote">"</div><p class="testimonial-text">Tour Hạ Long của PTX Travel thực sự tuyệt vời! Mọi thứ đều được chuẩn bị chu đáo. Chắc chắn sẽ quay lại!</p><div class="testimonial-author"><div class="author-avatar">N</div><div><div class="author-info"><strong>Nguyễn Thị Mai</strong><span>📍 Hà Nội</span></div><div class="stars" style="margin-top:4px;">★★★★★</div></div></div></div>
+        <div class="testimonial-card"><div class="testimonial-quote">"</div><p class="testimonial-text">Đã đặt tour Nhật Bản qua PTX Travel. Visa hỗ trợ nhanh, lịch trình cực kỳ khoa học. Gia đình ai cũng thích!</p><div class="testimonial-author"><div class="author-avatar">T</div><div><div class="author-info"><strong>Trần Văn Hùng</strong><span>📍 TP. HCM</span></div><div class="stars" style="margin-top:4px;">★★★★★</div></div></div></div>
+        <div class="testimonial-card"><div class="testimonial-quote">"</div><p class="testimonial-text">Chuyến Sa Pa mùa lúa vàng đẹp như mơ. PTX Travel xứng đáng là lựa chọn số 1!</p><div class="testimonial-author"><div class="author-avatar">L</div><div><div class="author-info"><strong>Lê Phương Thảo</strong><span>📍 Đà Nẵng</span></div><div class="stars" style="margin-top:4px;">★★★★★</div></div></div></div>
+        <div class="testimonial-card"><div class="testimonial-quote">"</div><p class="testimonial-text">Tour Paris tuần trăng mật hoàn hảo 100%. Cảm ơn vì những kỷ niệm đẹp!</p><div class="testimonial-author"><div class="author-avatar">P</div><div><div class="author-info"><strong>Phạm Đức Anh</strong><span>📍 Hải Phòng</span></div><div class="stars" style="margin-top:4px;">★★★★★</div></div></div></div>
+      </div>
+    </div>
+    <div class="testimonials-nav"><button id="testi-prev" class="testi-nav-btn">‹</button><button id="testi-next" class="testi-nav-btn">›</button></div>
+  </div>
+</section>
+
+<!-- ── BLOG PREVIEW ── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Blog Du Lịch</div>
+      <h2 class="section-title">Kinh Nghiệm & <span>Cảm Hứng</span></h2>
+    </div>
+    <div id="home-blog-grid" class="tours-grid reveal stagger-children"></div>
+    <div style="text-align:center;margin-top:var(--space-xl);" class="reveal">
+      <a href="blog.html" class="btn btn-outline btn-lg">Xem Tất Cả Bài Viết <span class="bounce-x">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA BANNER ── -->
+<section style="background:var(--grad-primary);padding:var(--space-3xl) 0;text-align:center;color:white;">
+  <div class="container reveal">
+    <h2 style="font-family:var(--font-heading);font-size:clamp(28px,4vw,48px);font-weight:800;margin-bottom:16px;">Sẵn Sàng Cho Chuyến Đi Tiếp Theo?</h2>
+    <p style="font-size:18px;opacity:.88;margin-bottom:32px;">Liên hệ ngay với đội ngũ PTX Travel để nhận tư vấn miễn phí và ưu đãi đặc biệt.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-lg" style="background:white;color:var(--primary);font-weight:700;">📞 Liên Hệ Ngay</a>
+      <a href="tours.html"   class="btn btn-lg" style="background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.4);color:white;">🗺️ Xem Tours</a>
+    </div>
+  </div>
+</section>
+
+<script src="js/components/navbar.js"></script>
+<script src="js/components/footer.js"></script>
+<script src="js/data/tours-data.js"></script>
+<script src="js/data/blog-data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/slider.js"></script>
+<script src="js/pages/home.js"></script>
+</body>
+</html>

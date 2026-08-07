@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Blog Du Lịch — PTX Travel | Kinh Nghiệm & Cảm Hứng</title>
+  <meta name="description" content="Blog du lịch PTX Travel: kinh nghiệm du lịch, hướng dẫn xin visa, review điểm đến, tips tiết kiệm và nhiều hơn nữa."/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/animations.css"/>
+  <link rel="stylesheet" href="css/components.css"/>
+  <link rel="stylesheet" href="css/pages.css"/>
+</head>
+<body>
+
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="page-hero-bg"><img src="assets/tour_japan.png" alt="Blog Du Lịch"/></div>
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <div class="breadcrumb">
+      <a href="index.html">Trang chủ</a><span class="sep">›</span>
+      <span class="current">Blog Du Lịch</span>
+    </div>
+    <h1>📝 Blog Du Lịch</h1>
+    <p>Kinh nghiệm thực tế, tips du lịch và cảm hứng khám phá thế giới</p>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="container" style="padding-top:var(--space-xl);padding-bottom:var(--space-3xl);">
+  <div class="blog-page-layout">
+
+    <!-- Main -->
+    <main>
+      <!-- Category Filter -->
+      <div class="tours-filters reveal" id="blog-cat-filters" style="justify-content:flex-start;margin-bottom:var(--space-lg);">
+        <button class="tag filter-btn active" data-cat="all">🌍 Tất Cả</button>
+        <button class="tag filter-btn" data-cat="vietnam">🇻🇳 Việt Nam</button>
+        <button class="tag filter-btn" data-cat="southeast-asia">🌏 Đông Nam Á</button>
+        <button class="tag filter-btn" data-cat="international">✈️ Quốc Tế</button>
+      </div>
+
+      <!-- Blog Grid -->
+      <div id="blog-grid" class="tours-grid stagger-children"></div>
+      <div class="pagination" id="blog-pagination"></div>
+    </main>
+
+    <!-- Sidebar -->
+    <aside class="blog-sidebar">
+      <!-- Search -->
+      <div class="blog-sidebar-widget">
+        <div class="widget-title">🔍 Tìm Kiếm</div>
+        <input type="text" id="blog-search" class="blog-search-input" placeholder="Tìm bài viết..." />
+      </div>
+
+      <!-- Popular -->
+      <div class="blog-sidebar-widget">
+        <div class="widget-title">🔥 Bài Viết Nổi Bật</div>
+        <div id="popular-posts"></div>
+      </div>
+
+      <!-- Tags -->
+      <div class="blog-sidebar-widget">
+        <div class="widget-title">🏷️ Tags</div>
+        <div class="tag-cloud" id="tag-cloud"></div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="blog-sidebar-widget" style="background:var(--grad-primary);color:white;border-color:transparent;">
+        <div style="font-size:24px;margin-bottom:8px;">📬</div>
+        <h4 style="font-size:16px;font-weight:700;margin-bottom:8px;">Nhận Bài Viết Mới</h4>
+        <p style="font-size:13px;opacity:.85;line-height:1.6;margin-bottom:16px;">Đăng ký nhận thông báo khi có bài viết mới về kinh nghiệm du lịch.</p>
+        <form id="blog-newsletter" style="display:flex;gap:8px;flex-direction:column;">
+          <input type="email" placeholder="Email của bạn..." style="padding:10px 14px;border-radius:var(--radius-md);border:none;font-family:var(--font-body);font-size:14px;outline:none;"/>
+          <button type="submit" class="btn btn-red" style="width:100%;justify-content:center;">Đăng Ký</button>
+        </form>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<script src="js/components/navbar.js"></script>
+<script src="js/components/footer.js"></script>
+<script src="js/data/blog-data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/pages/blog.js"></script>
+</body>
+</html>
