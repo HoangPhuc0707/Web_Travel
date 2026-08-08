@@ -1,7 +1,8 @@
 import React from 'react';
 import { getTours } from '@/lib/data';
 import Link from 'next/link';
-import { Plus, Search, Edit, Trash2, Eye } from 'lucide-react';
+import { Plus, Search, Edit, Eye } from 'lucide-react';
+import DeleteTourButton from '@/components/admin/DeleteTourButton';
 
 export default async function AdminToursPage() {
   const tours = await getTours();
@@ -92,12 +93,10 @@ export default async function AdminToursPage() {
                       <Link href={`/tours/${tour.slug}`} target="_blank" className="p-2 text-gray-400 hover:text-[var(--color-primary)] hover:bg-blue-50 rounded-lg transition-colors" title="Xem trên web">
                         <Eye className="w-4 h-4" />
                       </Link>
-                      <button className="p-2 text-gray-400 hover:text-amber-600 hover:bg-amber-50 rounded-lg transition-colors" title="Chỉnh sửa">
+                      <Link href={`/admin/tours/${tour.slug}/edit`} className="p-2 text-gray-400 hover:text-amber-600 hover:bg-amber-50 rounded-lg transition-colors" title="Chỉnh sửa">
                         <Edit className="w-4 h-4" />
-                      </button>
-                      <button className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Xóa">
-                        <Trash2 className="w-4 h-4" />
-                      </button>
+                      </Link>
+                      <DeleteTourButton slug={tour.slug} title={tour.title} />
                     </div>
                   </td>
                 </tr>
