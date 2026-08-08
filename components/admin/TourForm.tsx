@@ -7,6 +7,7 @@ import { Plus, Trash2, Save, ArrowLeft } from 'lucide-react';
 export default function TourForm({ initialData = null }: { initialData?: any }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [isUploadingImage, setIsUploadingImage] = useState(false);
   const [error, setError] = useState('');
 
   const [formData, setFormData] = useState({
@@ -261,20 +262,70 @@ export default function TourForm({ initialData = null }: { initialData?: any }) 
             
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Hình ảnh (URL) *</label>
-                <input
-                  type="text"
-                  required
-                  value={formData.image}
-                  onChange={(e) => setFormData({...formData, image: e.target.value})}
-                  className="w-full px-4 py-2 border border-gray-200 rounded-lg text-sm"
-                  placeholder="https://..."
-                />
-                {formData.image && (
-                  <div className="mt-2 w-full h-32 rounded-lg bg-gray-100 overflow-hidden border border-gray-200">
+                <label className="block text-sm font-medium text-gray-700 mb-2">Hình ảnh đại diện *</label>
+                {formData.image ? (
+                  <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-gray-200 mb-3 group">
                     <img src={formData.image} alt="Preview" className="w-full h-full object-cover" />
+                    <button 
+                      type="button" 
+                      onClick={() => setFormData({...formData, image: ''})} 
+                      className="absolute top-2 right-2 p-1.5 bg-black/50 hover:bg-black/70 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
+                ) : (
+                  <div className="w-full">
+                    <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-xl cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors">
+                      <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                        {isUploadingImage ? (
+                          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[var(--color-primary)] mb-2"></div>
+                        ) : (
+                          <Plus className="w-8 h-8 text-gray-400 mb-2" />
+                        )}
+                        <p className="text-sm text-gray-500 font-medium">
+                          {isUploadingImage ? 'Đang tải lên...' : 'Click để tải ảnh lên'}
+                        </p>
+                      </div>
+                      <input 
+                        type="file" 
+                        className="hidden" 
+                        accept="image/*"
+                        disabled={isUploadingImage}
+                        onChange={async (e) => {
+                          const file = e.target.files?.[0];
+                          if (!file) return;
+                          
+                          setIsUploadingImage(true);
+                          const formDataData = new FormData();
+                          formDataData.append('file', file);
+                          
+                          try {
+                            const res = await fetch('/api/upload', {
+                              method: 'POST',
+                              body: formDataData
+                            });
+                            if (!res.ok) throw new Error('Upload failed');
+                            const data = await res.json();
+                            setFormData({...formData, image: data.secure_url});
+                          } catch (err) {
+                            alert('Lỗi tải ảnh. Vui lòng thử lại.');
+                          } finally {
+                            setIsUploadingImage(false);
+                          }
+                        }}
+                      />
+                    </label>
                   </div>
                 )}
+                {/* Fallback URL input just in case */}
+                <input
+                  type="text"
+                  value={formData.image}
+                  onChange={(e) => setFormData({...formData, image: e.target.value})}
+                  className="w-full px-4 py-2 border border-gray-200 rounded-lg text-sm mt-3"
+                  placeholder="Hoặc dán URL ảnh trực tiếp vào đây..."
+                />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
