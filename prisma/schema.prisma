@@ -1,0 +1,87 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Tour {
+  id            String   @id @default(cuid())
+  slug          String   @unique
+  title         String
+  price         Int
+  originalPrice Int?
+  duration      String
+  location      String
+  destination   String?
+  rating        Float    @default(5.0)
+  reviews       Int      @default(0)
+  image         String
+  images        String   // JSON stringified array
+  category      String
+  isNew         Boolean  @default(false)
+  featured      Boolean  @default(false)
+  slots         Int?
+  description   String?
+  itinerary     String?  // JSON stringified array
+  includes      String?  // JSON stringified array
+  excludes      String?  // JSON stringified array
+  departures    String?  // JSON stringified array
+  highlights    String?  // JSON stringified array
+  badges        String?  // JSON stringified array
+  isHidden      Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  bookings      Booking[]
+}
+
+model Blog {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  date        String
+  author      String
+  category    String
+  image       String
+  excerpt     String
+  content     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Booking {
+  id            String   @id @default(cuid())
+  tourId        String
+  tourName      String
+  customerName  String
+  customerPhone String
+  customerEmail String?
+  adults        Int
+  children      Int      @default(0)
+  totalPrice    Int
+  note          String?
+  status        String   @default("PENDING") // PENDING, PAID, CANCELLED, COMPLETED
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  tour          Tour     @relation(fields: [tourId], references: [id])
+}
+
+model Contact {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  subject     String?
+  message     String
+  status      String   @default("NEW") // NEW, READ, REPLIED
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Subscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}

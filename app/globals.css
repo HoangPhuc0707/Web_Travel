@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+
+@theme {
+  --color-primary: #0057B8;
+  --color-primary-dark: #003F8A;
+  --color-primary-light: #EBF4FF;
+  --color-red: #E8192C;
+  --color-red-dark: #C0111F;
+  --color-red-light: #FEE7EA;
+  --color-background: #FFFFFF;
+  --color-foreground: #1E293B;
+
+  --color-bg: #FFFFFF;
+  --color-bg-soft: #F8FAFF;
+  --color-bg-alt: #EFF6FF;
+  --color-surface: #FFFFFF;
+  --color-border: #E2EAF4;
+  --color-text: #1E293B;
+  --color-text-muted: #64748B;
+  --color-text-light: #94A3B8;
+
+  --font-heading: var(--font-playfair), Georgia, serif;
+  --font-body: var(--font-inter), -apple-system, sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+}
+
+:root {
+  /* Gradient */
+  --grad-primary: linear-gradient(135deg, #0057B8 0%, #0083FF 100%);
+  --grad-red: linear-gradient(135deg, #E8192C 0%, #FF4D5E 100%);
+  --grad-hero: linear-gradient(135deg, rgba(0,87,184,0.85) 0%, rgba(232,25,44,0.6) 100%);
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,87,184,0.12), 0 2px 4px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 40px rgba(0,87,184,0.16), 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-xl: 0 20px 60px rgba(0,87,184,0.2);
+  --shadow-red: 0 8px 24px rgba(232,25,44,0.25);
+
+  /* Transitions */
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --t-fast: 0.15s var(--ease);
+  --t-med: 0.3s var(--ease);
+  --t-slow: 0.5s var(--ease);
+
+  /* Layout */
+  --container: 1200px;
+  --nav-h: 76px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Base custom classes from style.css */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.section {
+  padding: var(--space-3xl) 0;
+}
+
+.section-alt {
+  background: var(--color-bg-soft);
+}
+
+.section-blue {
+  background: var(--color-bg-alt);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
