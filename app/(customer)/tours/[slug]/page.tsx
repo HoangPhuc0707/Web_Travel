@@ -52,7 +52,7 @@ export default async function TourDetailPage({
           <div className="flex flex-col gap-4 max-w-4xl">
             <div className="flex gap-2">
               <Badge variant="blue">{tour.category}</Badge>
-              {tour.slots !== undefined && tour.slots < 5 && (
+              {tour.slots !== undefined && tour.slots !== null && tour.slots < 5 && (
                 <Badge variant="red">Chỉ còn {tour.slots} chỗ</Badge>
               )}
             </div>

@@ -68,7 +68,7 @@ export default async function BlogDetailPage({
             prose-headings:font-heading prose-headings:font-bold prose-headings:text-gray-900
             prose-a:text-[var(--color-primary)] prose-a:no-underline hover:prose-a:underline
             prose-img:rounded-2xl prose-img:shadow-sm"
-          dangerouslySetInnerHTML={{ __html: blog.content }}
+          dangerouslySetInnerHTML={{ __html: blog.content || '' }}
         />
         
         <div className="mt-12 pt-8 border-t border-gray-100 flex flex-wrap gap-2">

@@ -14,9 +14,9 @@ export interface TourCardProps {
     rating: number;
     reviews: number;
     price: number | string;
-    originalPrice?: number | string;
+    originalPrice?: number | string | null;
     isNew?: boolean;
-    slots?: number;
+    slots?: number | null;
   };
 }
 
@@ -42,7 +42,7 @@ export function TourCard({ tour }: TourCardProps) {
           {tour.isNew && (
             <Badge variant="blue">New</Badge>
           )}
-          {tour.slots !== undefined && tour.slots < 5 && (
+          {tour.slots !== undefined && tour.slots !== null && tour.slots < 5 && (
             <Badge variant="red">Chỉ còn {tour.slots} chỗ</Badge>
           )}
         </div>
