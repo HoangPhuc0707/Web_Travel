@@ -54,7 +54,7 @@ export default async function AdminCustomersPage() {
                     Chưa có tin nhắn liên hệ nào. (Chức năng lưu Contact từ trang Customer chưa gọi API)
                   </td>
                 </tr>
-              ) : contacts.map((contact) => (
+              ) : contacts.map((contact: any) => (
                 <tr key={contact.id} className="hover:bg-gray-50 transition-colors">
                   <td className="px-6 py-4 font-medium text-gray-900">{contact.name}</td>
                   <td className="px-6 py-4">

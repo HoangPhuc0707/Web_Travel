@@ -50,7 +50,7 @@ export default async function AdminBlogsPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
-              {blogs.map((blog, idx) => (
+              {blogs.map((blog: any, idx: number) => (
                 <tr key={blog.id} className="hover:bg-gray-50 transition-colors">
                   <td className="px-6 py-4 text-gray-500">{idx + 1}</td>
                   <td className="px-6 py-4">

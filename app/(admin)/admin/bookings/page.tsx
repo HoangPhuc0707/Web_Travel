@@ -59,7 +59,7 @@ export default async function AdminBookingsPage() {
                     Chưa có booking nào.
                   </td>
                 </tr>
-              ) : bookings.map((booking) => (
+              ) : bookings.map((booking: any) => (
                 <tr key={booking.id} className="hover:bg-gray-50 transition-colors">
                   <td className="px-6 py-4 font-medium text-gray-900">{booking.id}</td>
                   <td className="px-6 py-4">
