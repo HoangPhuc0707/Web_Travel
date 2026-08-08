@@ -5,8 +5,8 @@ import { createClient } from '@libsql/client'
 
 const prismaClientSingleton = () => {
   const client = createClient({
-    url: process.env.DATABASE_URL || 'file:./dev.db',
-    authToken: process.env.TURSO_AUTH_TOKEN,
+    url: process.env.DATABASE_URL?.trim() || 'file:./dev.db',
+    authToken: process.env.TURSO_AUTH_TOKEN?.trim(),
   })
   
   const adapter = new PrismaLibSql(client)
