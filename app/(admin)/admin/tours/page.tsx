@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import React from 'react';
 import { getTours } from '@/lib/data';
 import Link from 'next/link';
@@ -118,3 +119,4 @@ export default async function AdminToursPage() {
     </div>
   );
 }
+

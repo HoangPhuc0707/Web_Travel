@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import React from 'react';
 import { Users, Map, ShoppingBag, FileText, ArrowUpRight, TrendingUp } from 'lucide-react';
 import { getTours, getBlogs } from '@/lib/data';
@@ -110,3 +111,4 @@ export default async function AdminDashboard() {
     </div>
   );
 }
+

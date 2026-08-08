@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import React from 'react';
 import TourForm from '@/components/admin/TourForm';
 
@@ -12,3 +13,4 @@ export default function CreateTourPage() {
     </div>
   );
 }
+

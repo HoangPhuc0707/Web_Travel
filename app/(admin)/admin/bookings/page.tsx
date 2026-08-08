@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import React from 'react';
 import prisma from '@/lib/prisma';
 import { Search, Eye, CheckCircle, XCircle } from 'lucide-react';
@@ -103,3 +104,4 @@ export default async function AdminBookingsPage() {
     </div>
   );
 }
+

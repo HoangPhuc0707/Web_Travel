@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import React from 'react';
 import prisma from '@/lib/prisma';
 import { Search, Mail, Phone, MessageSquare } from 'lucide-react';
@@ -81,3 +82,4 @@ export default async function AdminCustomersPage() {
     </div>
   );
 }
+
