@@ -4,9 +4,14 @@ import prisma from '@/lib/prisma';
 import { Search, Eye, CheckCircle, XCircle } from 'lucide-react';
 
 export default async function AdminBookingsPage() {
-  const bookings = await prisma.booking.findMany({
-    orderBy: { createdAt: 'desc' }
-  });
+  let bookings: any[] = [];
+  try {
+    bookings = await prisma.booking.findMany({
+      orderBy: { createdAt: 'desc' }
+    });
+  } catch (error) {
+    console.error('Error fetching bookings:', error);
+  }
 
   return (
     <div className="space-y-6">

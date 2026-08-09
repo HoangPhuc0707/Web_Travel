@@ -4,9 +4,15 @@ import prisma from '@/lib/prisma';
 import { Search, Mail, Phone, MessageSquare } from 'lucide-react';
 
 export default async function AdminCustomersPage() {
-  const contacts = await prisma.contact.findMany({
-    orderBy: { createdAt: 'desc' }
-  });
+  let contacts: any[] = [];
+  try {
+    contacts = await prisma.contact.findMany({
+      orderBy: { createdAt: 'desc' }
+    });
+  } catch (error) {
+    console.error('Error fetching contacts:', error);
+  }
+
 
   return (
     <div className="space-y-6">
