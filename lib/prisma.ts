@@ -1,13 +1,15 @@
 import { PrismaClient } from '@prisma/client'
 import { PrismaLibSql } from '@prisma/adapter-libsql'
 
-
 const prismaClientSingleton = () => {
-  const adapter = new PrismaLibSql({
-    url: process.env.DATABASE_URL?.trim() || 'file:./dev.db',
-    authToken: process.env.TURSO_AUTH_TOKEN?.trim(),
-  })
-  
+  const url = process.env.DATABASE_URL?.trim()
+  const authToken = process.env.TURSO_AUTH_TOKEN?.trim()
+
+  if (!url) {
+    throw new Error('DATABASE_URL environment variable is not set')
+  }
+
+  const adapter = new PrismaLibSql({ url, authToken })
   return new PrismaClient({ adapter })
 }
 
