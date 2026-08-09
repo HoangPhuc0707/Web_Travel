@@ -56,8 +56,9 @@ export function BookingForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          tourId: tourDetails?.slug || 'custom-tour',
-          tourName: tourDetails?.title || 'Custom Tour',
+          tourId: tourDetails?.id || null,
+          tourSlug: tourDetails?.slug || null,
+          tourName: tourDetails?.title || 'Tour tùy chọn',
           customerName: formData.name,
           customerPhone: formData.phone,
           customerEmail: formData.email,
