@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Music, Send, ArrowUp, Phone } from 'lucide-react';
 
 export function Footer() {
@@ -26,14 +27,14 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             {/* Brand */}
             <div>
-              <Link href="/" className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-lg bg-[linear-gradient(135deg,var(--color-primary)_0%,#0083FF_100%)] text-white flex items-center justify-center font-heading font-bold text-xl shadow-md">
-                  P
-                </div>
-                <div className="flex flex-col">
-                  <strong className="text-[17px] font-bold leading-tight">PTX Travel</strong>
-                  <span className="text-[12px] text-slate-400 uppercase tracking-wider font-semibold">Phú Thọ Xanh Tourist</span>
-                </div>
+              <Link href="/" className="flex items-center group mb-6">
+                <Image 
+                  src="/assets/Logo/2.png" 
+                  alt="PTX Travel" 
+                  width={200} 
+                  height={60} 
+                  className="h-12 w-auto object-contain transition-transform group-hover:scale-105"
+                />
               </Link>
               <p className="text-slate-300 text-sm leading-relaxed mb-6">
                 Công ty du lịch uy tín hàng đầu tại Phú Thọ. Chuyên cung cấp tour du lịch trong nước và quốc tế với dịch vụ chuyên nghiệp, giá cạnh tranh.

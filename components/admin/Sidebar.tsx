@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { LayoutDashboard, Map, ShoppingBag, FileText, Users, Settings, LogOut } from 'lucide-react';
 
@@ -20,11 +21,14 @@ export function Sidebar() {
   return (
     <aside className="w-64 h-screen bg-slate-900 text-slate-300 flex flex-col fixed left-0 top-0 border-r border-slate-800 z-50">
       <div className="h-16 flex items-center px-6 border-b border-slate-800 shrink-0">
-        <Link href="/admin" className="flex items-center gap-2 text-white">
-          <div className="w-8 h-8 rounded bg-[linear-gradient(135deg,var(--color-primary)_0%,#0083FF_100%)] flex items-center justify-center font-bold text-lg">
-            P
-          </div>
-          <span className="font-bold text-lg tracking-wide">PTX Admin</span>
+        <Link href="/admin" className="flex items-center text-white">
+          <Image 
+            src="/assets/Logo/2.png" 
+            alt="PTX Admin" 
+            width={150} 
+            height={40} 
+            className="h-8 w-auto object-contain"
+          />
         </Link>
       </div>
 

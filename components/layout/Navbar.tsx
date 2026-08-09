@@ -1,23 +1,26 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 
-const NAV_LINKS = [
-  { href: '/tours', label: 'Tour Du Lịch' },
-  { href: '/destinations', label: 'Điểm Đến' },
-  { href: '/about', label: 'Về Chúng Tôi' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/contact', label: 'Liên Hệ' },
-];
+
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  const NAV_LINKS = [
+    { href: '/tours', label: 'Tất cả Tour' },
+    { href: '/destinations', label: 'Điểm Đến' },
+    { href: '/about', label: 'Về Chúng Tôi' },
+    { href: '/blog', label: 'Blog' },
+    { href: '/contact', label: 'Liên hệ' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,32 +50,28 @@ export function Navbar() {
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-lg bg-[linear-gradient(135deg,var(--color-primary)_0%,#0083FF_100%)] text-white flex items-center justify-center font-heading font-bold text-xl shadow-md group-hover:-translate-y-1 transition-transform">
-              P
-            </div>
-            <div className="flex flex-col">
-              <strong className="text-[17px] font-bold text-gray-900 leading-tight group-hover:text-[var(--color-primary)] transition-colors">
-                PTX Travel
-              </strong>
-              <span className="text-[12px] text-gray-500 uppercase tracking-wider font-semibold">
-                Phú Thọ Xanh Tourist
-              </span>
-            </div>
+          <Link href="/" className="flex items-center group">
+            <Image 
+              src="/assets/Logo/1.png" 
+              alt="PTX Travel" 
+              width={200} 
+              height={60} 
+              className="h-10 w-auto object-contain transition-transform group-hover:scale-105"
+            />
           </Link>
 
           {/* Desktop Links */}
-          <ul className="hidden lg:flex items-center gap-1">
+          <ul className="hidden lg:flex items-center gap-2 lg:gap-6">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href || (pathname.startsWith(link.href) && link.href !== '/');
               return (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`px-4 py-2 rounded-full font-semibold text-[15px] transition-colors ${
+                    className={`font-semibold text-[15px] transition-colors ${
                       isActive
-                        ? 'text-[var(--color-primary)] bg-[var(--color-primary-light)]'
-                        : 'text-gray-700 hover:text-[var(--color-primary)] hover:bg-gray-50'
+                        ? 'text-[#0052CC]'
+                        : 'text-[#6B7280] hover:text-[#0052CC]'
                     }`}
                   >
                     {link.label}
@@ -90,7 +89,7 @@ export function Navbar() {
               </a>
             </Button>
             <Button variant="red" size="default" className="py-2 px-4 text-sm" asChild>
-              <Link href="/booking">Đặt Tour</Link>
+              <Link href="/booking">Đặt Tour Ngay</Link>
             </Button>
           </div>
 
